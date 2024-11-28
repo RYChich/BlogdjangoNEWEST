@@ -1,0 +1,35 @@
+<!-- templates/blog/profile.html -->
+{% extends 'blog/base.html' %}
+
+{% block title %}Профиль{% endblock %}
+
+{% block content %}
+    <h2>Профиль пользователя: {{ user.username }}</h2>
+    <h3 class="mt-4">Ваши посты:</h3>
+    <div class="row">
+        {% for post in posts %}
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.content|truncatewords:30 }}</p>
+                    </div>
+                    <div class="card-footer">
+
+                        <small class="text-muted">{{ post.pub_date }}</small>
+                        {% if post.author == user %}
+
+                        <a href="{% url 'delete_post' post.id %}" class="btn btn-danger btn-sm float-end">Удалить</a>
+                         <a href="{% url 'edit_post' post.id %}" class="btn btn-secondary btn-sm float-end">Редактировать</a>
+                {% endif %}
+                        <a href="{% url 'post_detail' post.id %}" class="btn btn-primary btn-sm float-end">Читать полностью</a>
+
+                    </div>
+
+                </div>
+            </div>
+        {% empty %}
+            <p>У вас пока нет постов.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

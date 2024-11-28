@@ -1,0 +1,35 @@
+<!-- templates/blog/post_list.html -->
+{% extends 'blog/base.html' %}
+
+{% block title %}Список Постов{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Блоговые Посты</h1>
+    <div class="row">
+        {% for post in posts %}
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.content|truncatewords:30 }}</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between align-items-center">
+                        <small class="text-muted">
+                            Автор:
+                            <a href="{% url 'user_profile' post.author.username %}">
+                                {{ post.author.username }}
+                            </a> | {{ post.pub_date|date:"d M Y" }}
+                        </small>
+                        <a href="{% url 'post_detail' post.id %}" class="btn btn-primary btn-sm">
+                            <i class="fas fa-book-reader"></i> Читать полностью
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>Постов пока нет.</p>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}

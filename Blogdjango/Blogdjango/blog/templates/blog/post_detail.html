@@ -1,0 +1,26 @@
+<!-- templates/blog/post_detail.html -->
+{% extends 'blog/base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">{{ post.title }}</h2>
+            <p class="card-text">{{ post.content|linebreaks }}</p>
+              {% if post.author == user %}
+        <a href="{% url 'edit_post' post.id %}" class="btn btn-secondary">Редактировать</a>
+        <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Удалить</a>
+    {% endif %}
+        </div>
+        <div class="card-footer text-muted">
+            Автор:
+            <a href="{% url 'user_profile' post.author.username %}">
+                {{ post.author.username }}
+            </a> | Опубликовано: {{ post.pub_date|date:"d M Y" }}
+        </div>
+    </div>
+    <a href="{% url 'post_list' %}" class="btn btn-secondary">
+        <i class="fas fa-arrow-left"></i> Назад к постам
+    </a>
+{% endblock %}

@@ -1,0 +1,108 @@
+
+
+body {
+    background-color: #e6ffe6; /* Светло-салатовый фон */
+    font-family: 'Roboto', sans-serif; /* Кастомный шрифт */
+    color: #333333; /* Основной цвет текста */
+}
+
+
+.navbar {
+    background-color: #28a745 !important; /* Темно-салатовый фон */
+}
+
+.navbar-brand, .nav-link {
+    color: #ffffff !important; /* Белый цвет текста */
+}
+
+.navbar-brand:hover, .nav-link:hover {
+    color: #d4edda !important; /* Светло-салатовый при наведении */
+}
+
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none; /* Убираем стандартную обводку */
+}
+
+.card-title {
+    color: #218838; /* Темно-зеленый цвет заголовков */
+}
+
+.card-text {
+    color: #555555; /* Темно-серый цвет текста */
+}
+
+
+.btn-primary {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-primary:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #28a745;
+}
+
+.form-control:focus {
+    border-color: #1e7e34;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+
+a {
+    color: #28a745;
+}
+
+a:hover {
+    color: #1e7e34;
+    text-decoration: none;
+}
+
+
+
+#btn-back-to-top:hover {
+    background-color: #1e7e34;
+}
+
+
+.card-text, .form-label, .form-control, .nav-link, .navbar-brand {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: #218838;
+    font-weight: 700;
+}
